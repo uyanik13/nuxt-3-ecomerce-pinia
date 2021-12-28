@@ -1,0 +1,7 @@
+API_URL='https://api.kurdishname.com/'
+SITE_URL='https://kurdishname.com'
+MIX_PUSHER_APP_KEY="7b8712cafe165ce13615"
+MIX_PUSHER_APP_CLUSTER="eu"
+ENV=production
+GOOGLE_OAUTH_CLIENT_ID="765293818787-e2sg6nmq43len8beuh625mvd5bob9qe4.apps.googleusercontent.com"
+GOOGLE_OAUTH_CLIENT_SECRET="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"

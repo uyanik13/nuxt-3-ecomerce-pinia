@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .custom-input {
+    @apply w-full px-2 py-3 pl-10 text-sm border-gray-400 rounded-lg border-1 focus:outline-none focus:ring-1;
+  }
+
+  .custom-input-2 {
+    @apply block w-full px-4 py-2 text-gray-700 bg-gray-200 border-gray-300 rounded-lg appearance-none border-1 focus:outline-none focus:shadow-outline;
+  }
+
+  button {
+    @apply focus:outline-none;
+  }
+  label {
+    @apply block mb-1 text-xs font-normal tracking-wide uppercase;
+  }
+  .btn-secondary {
+    @apply px-12 py-1.5 text-center font-bold text-white transition duration-500 ease-in-out rounded-lg focus:outline-none bg-secondary hover:bg-primary text-4;
+  }
+  .btn-primary {
+    @apply px-12 py-1.5 text-center font-bold text-white transition duration-500 ease-in-out rounded-lg focus:outline-none bg-primary hover:bg-secondary text-4;
+  }
+  .btn-featured-1 {
+    @apply px-12 py-3 font-bold text-white transition duration-500 ease-in-out rounded-lg focus:outline-none bg-secondary hover:bg-primary text-5;
+  }
+
+  .with-border {
+    @apply border-gray-200 rounded-sm border-1;
+  }
+
+  .item-center {
+    @apply flex items-center justify-items-center;
+  }
+
+  .toggle-checkbox:checked {
+    @apply: right-0 border-green-400;
+    right: 0;
+    border-color: #68d391;
+  }
+  .toggle-checkbox:checked + .toggle-label {
+    @apply: bg-green-400;
+    background-color: #68d391;
+  }
+}
