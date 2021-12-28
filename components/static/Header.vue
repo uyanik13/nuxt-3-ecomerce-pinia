@@ -59,7 +59,7 @@
 
         <!-- QUICK MENU -->
         <div id="quick-menu" class="lg:flex mx-2 md:w-6/12 lg:w-6/12 sm:w-full">
-          <ul class="flex list-none pb-1">
+          <ul class="flex list-none items-center">
             <li
               class="mx-3 hidden lg:block"
               v-for="item in quickMenu"
@@ -75,13 +75,14 @@
             </li>
             <div class="flex justify-start items-start">
               <div class="relative">
-                <div
+                <nuxt-link
+                  to="/basket"
                   @mouseover="showCartItems = !showCartItems"
                   @blur="showCartItems = false"
                   class="flex flex-row cursor-pointer truncate p-2 px-4 rounded"
                 >
                   <div class="flex flex-row-reverse ml-2 w-full">
-                    <div slot="icon" class="relative">
+                    <div class="relative">
                       <div
                         class="
                           absolute
@@ -97,7 +98,7 @@
                           text-white
                         "
                       >
-                        3
+                        {{ cart.cartItems.length }}
                       </div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +120,7 @@
                       </svg>
                     </div>
                   </div>
-                </div>
+                </nuxt-link>
                 <div
                   v-if="showCartItems"
                   class="absolute w-full rounded-b border-t-0 z-99"
@@ -142,9 +143,12 @@
                         <img :src="item.image" alt="img product" />
                       </div>
                       <div class="flex-auto text-sm w-32">
-                        <div class="font-bold">{{ item.title }}</div>
-                        <div class="truncate">Product 1 description</div>
-                        <div class="text-gray-400">Qt: 2</div>
+                        <div class="font-bold truncate">
+                          {{ item.title }}
+                        </div>
+                        <span class="text-3.5 text-seconday font-semibold">
+                          {{ item.price }}</span
+                        >
                       </div>
                       <div class="flex flex-col w-18 font-medium items-end">
                         <div
@@ -178,8 +182,55 @@
                             <line x1="14" y1="11" x2="14" y2="17"></line>
                           </svg>
                         </div>
-                        {{ item.price }}
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-start items-start lg:hidden">
+              <div class="relative">
+                <div
+                  @mouseover="showMenu = !showMenu"
+                  @blur="showMenu = false"
+                  class="flex flex-row cursor-pointer truncate p-2 px-4 rounded"
+                >
+                  <div class="flex flex-row-reverse ml-2 w-full">
+                    <div class="relative">
+                      <svg
+                        class="fill-current w-8 h-8"
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill="#000"
+                          d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  v-if="showMenu"
+                  class="absolute w-full rounded-b border-t-0 z-99"
+                >
+                  <div class="shadow-xl w-32">
+                    <div
+                      v-for="item in quickMenu"
+                      :key="item.id"
+                      class="
+                        p-2
+                        flex
+                        bg-white
+                        hover:bg-gray-100
+                        cursor-pointer
+                        border-b border-gray-100
+                      "
+                      style=""
+                    >
+                      <nuxt-link :to="item.slug" class="flex-auto text-sm w-32">
+                        <div class="font-bold">{{ item.title }}</div>
+                      </nuxt-link>
                     </div>
                   </div>
                 </div>
@@ -199,6 +250,7 @@ import { useCart } from "@/store/cart";
 const cart = useCart();
 const showHistory = ref([]);
 const showCartItems = ref(false);
+const showMenu = ref(false);
 //const showHistory = useState("showHistory", () => []);
 const quickMenu = ref([
   {
@@ -208,13 +260,8 @@ const quickMenu = ref([
   },
   {
     id: 2,
-    title: "My Favorites",
+    title: "Favorites",
     slug: "my-favorites",
-  },
-  {
-    id: 3,
-    title: "Basket",
-    slug: "basket",
   },
 ]);
 </script>
