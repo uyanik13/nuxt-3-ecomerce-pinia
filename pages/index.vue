@@ -176,13 +176,13 @@ const cart = useCart();
                             mb-2
                             md:mb-0
                             bg-primary
-                            px-5
-                            py-2
+                            px-3
+                            py-1
                             hover:shadow-lg
                             tracking-wider
                             text-white
                             rounded-full
-                            hover:bg-purple-600
+                            hover:bg-secondary
                           "
                         >
                           <span>Add Cart</span>

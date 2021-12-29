@@ -77,8 +77,8 @@
               <div class="relative">
                 <nuxt-link
                   to="/basket"
-                  @mouseover="showCartItems = !showCartItems"
                   @blur="showCartItems = false"
+                  @mouseover="showCartItems = !showCartItems"
                   class="flex flex-row cursor-pointer truncate p-2 px-4 rounded"
                 >
                   <div class="flex flex-row-reverse ml-2 w-full">
